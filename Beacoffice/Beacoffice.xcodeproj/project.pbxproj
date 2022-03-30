@@ -14,6 +14,7 @@
 		8D5F665D27F46A1700ACB97B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F665C27F46A1700ACB97B /* ContentView.swift */; };
 		8D5F665F27F46A1A00ACB97B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F665E27F46A1A00ACB97B /* Assets.xcassets */; };
 		8D5F666227F46A1A00ACB97B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F666127F46A1A00ACB97B /* Preview Assets.xcassets */; };
+		8D5F666927F4AE4700ACB97B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F666827F4AE4700ACB97B /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		8D5F665C27F46A1700ACB97B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D5F665E27F46A1A00ACB97B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D5F666127F46A1A00ACB97B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8D5F666827F4AE4700ACB97B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				8D5F665A27F46A1700ACB97B /* BeacofficeApp.swift */,
 				8D5F665C27F46A1700ACB97B /* ContentView.swift */,
+				8D5F666827F4AE4700ACB97B /* ViewModel.swift */,
 				4C0AB1A027F4A5040070C4AF /* BeaconEmitter.swift */,
 				4C0AB1A227F4A5EE0070C4AF /* BeaconDetector.swift */,
 				4C0AB1A427F4A64D0070C4AF /* Constants.swift */,
@@ -150,6 +153,7 @@
 				8D5F665D27F46A1700ACB97B /* ContentView.swift in Sources */,
 				4C0AB1A327F4A5EE0070C4AF /* BeaconDetector.swift in Sources */,
 				8D5F665B27F46A1700ACB97B /* BeacofficeApp.swift in Sources */,
+				8D5F666927F4AE4700ACB97B /* ViewModel.swift in Sources */,
 				4C0AB1A127F4A5040070C4AF /* BeaconEmitter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +288,7 @@
 				DEVELOPMENT_TEAM = JQL58D9H52;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = Potatoes;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Bananas;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -315,6 +320,7 @@
 				DEVELOPMENT_TEAM = JQL58D9H52;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = Potatoes;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Bananas;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

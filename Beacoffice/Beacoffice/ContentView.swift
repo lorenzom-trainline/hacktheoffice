@@ -9,45 +9,48 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var enableEmitter = true
+    private var viewModel = ViewModel()
+
     var body: some View {
-        
-        TabView {
+        VStack {
             
-            DetectorView()
-                .tabItem {
-                    Image(systemName: "circle.fill")
+            
+            Toggle("Enable Emitter", isOn: $enableEmitter)
+            .onChange(of: enableEmitter) { value in
+                viewModel.setBeaconState( value ? BeaconState.emitting : BeaconState.detecting)
+            }
+            
+            VStack {
+                if enableEmitter {
+                    EmitterView()
+                    
+                } else {
+                    DetectorView(viewModel: viewModel)
                 }
-            EmitterView(emitter: BeaconEmitter())
-                .tabItem {
-                    Image(systemName: "circle.fill")
-                }
+            }
         }
     }
 }
 
 struct EmitterView: View {
-        
-    @State var emitter: BeaconEmitter
-    
+            
     var body: some View {
-        
         Text("Emitter")
-            .onAppear {
-                emitter.initLocalBeacon()
-            }
     }
-    
 }
 
 struct DetectorView: View {
     
-    @ObservedObject var detector = BeaconDetector()
+    @ObservedObject var viewModel: ViewModel
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
-        
-        Text("\(detector.lastDistance.rawValue)")
+        Text("\(viewModel.detector.lastDistance.displayString)")
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
