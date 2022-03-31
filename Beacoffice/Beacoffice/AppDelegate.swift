@@ -11,7 +11,7 @@ import UserNotifications
 class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        print("Your code here")
+        setupNotifications()
         return true
     }
     
@@ -30,5 +30,17 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         print("Notification received with identifier \(notification.request.identifier)")
         // So we call the completionHandler telling that the notification should display a banner and play the notification sound - this will happen while the app is in foreground
         completionHandler([.banner, .sound])
+    }
+}
+
+private extension AppDelegate {
+    func setupNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("All set!")
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
     }
 }
