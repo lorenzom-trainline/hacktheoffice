@@ -9,13 +9,14 @@ import SwiftUI
 
 struct DetectorView: View {
     
-    @ObservedObject var beaconDetector: BeaconDetector
+    let beaconDetector = BeaconDetector()
+    private let viewModel: ViewModel
     
-    init(beaconDetector: BeaconDetector) {
-        self.beaconDetector = beaconDetector
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
     }
 
     var body: some View {
-        Text(beaconDetector.viewModel.distanceString ?? "")
+        Text(viewModel.distanceString ?? "")
     }
 }

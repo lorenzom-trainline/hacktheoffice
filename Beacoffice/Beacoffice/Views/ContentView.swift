@@ -10,7 +10,8 @@ import UserNotifications
 
 struct ContentView: View {
     
-    @ObservedObject var beaconDetector = BeaconDetector()
+    @ObservedObject var viewModel = ViewModel(officeUpdatesService: OfficeUpdatesFirebaseService(),
+                                              beaconDetector: BeaconDetector())
 
     var body: some View {
         VStack {
@@ -39,7 +40,6 @@ struct ContentView: View {
 
                 // add our notification request
                 UNUserNotificationCenter.current().add(request)
-                
             }
             
             
@@ -54,11 +54,11 @@ struct ContentView: View {
             .buttonStyle(GradientButtonStyle())
             
             VStack {
-                DetectorView(beaconDetector: beaconDetector)
+                DetectorView(viewModel: viewModel)
                 Button("Test firebase") {
-                    beaconDetector.viewModel.checkService()
+                    viewModel.checkService()
                 }
-
+                Text(viewModel.officeUpdate.someString)
             }
         }
     }

@@ -19,12 +19,12 @@ extension CLAuthorizationStatus {
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
-    @Published var lastDistance = CLProximity.unknown
-    @Published var viewModel: ViewModel = ViewModel(officeUpdatesService: OfficeUpdatesFirebaseService())
+
     
     private let constraint = CLBeaconIdentityConstraint(uuid: Constants.beaconUUID)
     private lazy var beaconRegion = CLBeaconRegion(beaconIdentityConstraint: constraint, identifier: Constants.beaconId)
 
+    var distanceUpdated: ((CLProximity) -> Void)? = nil
     
     override init() {
         super.init()
@@ -56,26 +56,13 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         
         if let beacon = beacons.first {
-            updateDistance(beacon.proximity)
             
-            switch beacon.proximity {
-            case .immediate:
-                viewModel.distanceString = "Lava"
-            case .near:
-                viewModel.distanceString = "Wind"
-            default:
-                viewModel.distanceString = "Ice"
-            }
+            distanceUpdated?(beacon.proximity)
         }
     }
     
     func stopScanning() {
         locationManager.stopMonitoring(for: beaconRegion)
         locationManager.stopRangingBeacons(satisfying: constraint)
-    }
-
-    func updateDistance(_ distance: CLProximity) {
-        lastDistance = distance
-        print(distance.rawValue)
     }
 }

@@ -10,17 +10,28 @@ import SwiftUI
 class ViewModel: ObservableObject {
     
     @Published var distanceString: String?
-
+    @Published var officeUpdate: OfficeUpdateData = OfficeUpdateData(someString: "")
     
-    let officeUpdatesService: OfficeUpdatesService
+    private let officeUpdatesService: OfficeUpdatesService
+    private let beaconDetector: BeaconDetector
     
-    @Published var officeUpdate: OfficeUpdateData?
-    
-    init(officeUpdatesService: OfficeUpdatesService) {
+    init(officeUpdatesService: OfficeUpdatesService, beaconDetector: BeaconDetector) {
         self.officeUpdatesService = officeUpdatesService
+        self.beaconDetector = beaconDetector
+        
+        beaconDetector.distanceUpdated = { proximity in
+            
+            switch proximity {
+            case .immediate:
+                self.distanceString = "Lava"
+            case .near:
+                self.distanceString = "Wind"
+            default:
+                self.distanceString = "Ice"
+            }
+        }
     }
 
-    
     func checkService() {
         
         self.officeUpdatesService.fetchOfficeInfo(major: 1, minor: 1) { result in
