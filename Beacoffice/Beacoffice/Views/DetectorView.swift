@@ -11,6 +11,7 @@ struct DetectorView: View {
     
     let beaconDetector = BeaconDetector()
     private let viewModel: ViewModel
+    @Binding var close: Bool = false
     
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
@@ -22,15 +23,31 @@ struct DetectorView: View {
             
             VStack {
                 Rectangle()
-                    .padding()
                     .overlay(
                         ZStack {
+                            Color.white
                             VStack {
-                                Color.white
-                                Text(viewModel.distanceString ?? "")
+                                HStack {
+                                    Spacer()
+                                    Button {
+                                        close = true
+                                        print("close")
+                                    } label: {
+                                        Image(systemName: "xmark")
+                                            .font(Font.title3.weight(.bold))
+                                            .foregroundColor(.black)
+                                            .padding()
+                                    }
+                                }
+                                Spacer()
+                                Text(viewModel.distanceString ?? "Test")
+                                
+                                Spacer()
                             }
                         }
                     )
+                    .frame(height: 200)
+                    .padding(.horizontal)
 
             }
         }

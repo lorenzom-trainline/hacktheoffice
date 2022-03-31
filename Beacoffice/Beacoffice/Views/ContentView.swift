@@ -12,7 +12,7 @@ struct ContentView: View {
     
     @ObservedObject var viewModel = ViewModel(officeUpdatesService: OfficeUpdatesFirebaseService(),
                                               beaconDetector: BeaconDetector())
-    @State var messageReceived: Bool = false
+    @State var messageReceived: Bool = true 
     
     var body: some View {
         ZStack {
