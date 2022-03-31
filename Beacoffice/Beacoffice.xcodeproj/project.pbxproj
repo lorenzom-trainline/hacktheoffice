@@ -10,30 +10,29 @@
 		4C0AB1A127F4A5040070C4AF /* BeaconEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1A027F4A5040070C4AF /* BeaconEmitter.swift */; };
 		4C0AB1A327F4A5EE0070C4AF /* BeaconDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1A227F4A5EE0070C4AF /* BeaconDetector.swift */; };
 		4C0AB1A527F4A64D0070C4AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1A427F4A64D0070C4AF /* Constants.swift */; };
-		4C0AB1A927F5DB720070C4AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0AB1A827F5DB720070C4AF /* GoogleService-Info.plist */; };
-		4C0AB1AC27F5DD800070C4AF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0AB1AB27F5DD800070C4AF /* FirebaseFirestore */; };
-		4C0AB1AE27F5DD800070C4AF /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0AB1AD27F5DD800070C4AF /* FirebaseFirestoreCombine-Community */; };
-		4C0AB1B027F5DD800070C4AF /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0AB1AF27F5DD800070C4AF /* FirebaseFirestoreSwift-Beta */; };
-		4C0AB1B227F5DDEE0070C4AF /* OfficeUpdatesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1B127F5DDEE0070C4AF /* OfficeUpdatesService.swift */; };
+		4C0AB1B427F5EF4E0070C4AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0AB1B327F5EF4E0070C4AF /* GoogleService-Info.plist */; };
+		4C0AB1B627F5EF5C0070C4AF /* OfficeUpdatesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1B527F5EF5C0070C4AF /* OfficeUpdatesService.swift */; };
 		8D5F665B27F46A1700ACB97B /* BeacofficeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F665A27F46A1700ACB97B /* BeacofficeApp.swift */; };
 		8D5F665D27F46A1700ACB97B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F665C27F46A1700ACB97B /* ContentView.swift */; };
 		8D5F665F27F46A1A00ACB97B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F665E27F46A1A00ACB97B /* Assets.xcassets */; };
 		8D5F666227F46A1A00ACB97B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F666127F46A1A00ACB97B /* Preview Assets.xcassets */; };
 		8D5F666927F4AE4700ACB97B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F666827F4AE4700ACB97B /* ViewModel.swift */; };
+		8D5F666B27F5E79A00ACB97B /* DetectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F666A27F5E79A00ACB97B /* DetectorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C0AB1A027F4A5040070C4AF /* BeaconEmitter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconEmitter.swift; sourceTree = "<group>"; };
 		4C0AB1A227F4A5EE0070C4AF /* BeaconDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetector.swift; sourceTree = "<group>"; };
 		4C0AB1A427F4A64D0070C4AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		4C0AB1A827F5DB720070C4AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		4C0AB1B127F5DDEE0070C4AF /* OfficeUpdatesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeUpdatesService.swift; sourceTree = "<group>"; };
+		4C0AB1B327F5EF4E0070C4AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4C0AB1B527F5EF5C0070C4AF /* OfficeUpdatesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfficeUpdatesService.swift; path = Beacoffice/Services/OfficeUpdatesService.swift; sourceTree = SOURCE_ROOT; };
 		8D5F665727F46A1700ACB97B /* Beacoffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beacoffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5F665A27F46A1700ACB97B /* BeacofficeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeacofficeApp.swift; sourceTree = "<group>"; };
 		8D5F665C27F46A1700ACB97B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D5F665E27F46A1A00ACB97B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D5F666127F46A1A00ACB97B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8D5F666827F4AE4700ACB97B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		8D5F666A27F5E79A00ACB97B /* DetectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,9 +40,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C0AB1B027F5DD800070C4AF /* FirebaseFirestoreSwift-Beta in Frameworks */,
-				4C0AB1AC27F5DD800070C4AF /* FirebaseFirestore in Frameworks */,
-				4C0AB1AE27F5DD800070C4AF /* FirebaseFirestoreCombine-Community in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,14 +65,12 @@
 		8D5F665927F46A1700ACB97B /* Beacoffice */ = {
 			isa = PBXGroup;
 			children = (
-				4C0AB1A827F5DB720070C4AF /* GoogleService-Info.plist */,
+				4C0AB1B327F5EF4E0070C4AF /* GoogleService-Info.plist */,
 				8D5F665A27F46A1700ACB97B /* BeacofficeApp.swift */,
-				8D5F665C27F46A1700ACB97B /* ContentView.swift */,
-				8D5F666827F4AE4700ACB97B /* ViewModel.swift */,
-				4C0AB1A027F4A5040070C4AF /* BeaconEmitter.swift */,
-				4C0AB1B127F5DDEE0070C4AF /* OfficeUpdatesService.swift */,
-				4C0AB1A227F4A5EE0070C4AF /* BeaconDetector.swift */,
-				4C0AB1A427F4A64D0070C4AF /* Constants.swift */,
+				8D5F666C27F5E7A000ACB97B /* Views */,
+				8D5F666D27F5E7B800ACB97B /* ViewModel */,
+				8D5F666E27F5E7C100ACB97B /* Services */,
+				8D5F666F27F5E7DB00ACB97B /* Utility */,
 				8D5F665E27F46A1A00ACB97B /* Assets.xcassets */,
 				8D5F666027F46A1A00ACB97B /* Preview Content */,
 			);
@@ -89,6 +83,41 @@
 				8D5F666127F46A1A00ACB97B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8D5F666C27F5E7A000ACB97B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8D5F665C27F46A1700ACB97B /* ContentView.swift */,
+				8D5F666A27F5E79A00ACB97B /* DetectorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8D5F666D27F5E7B800ACB97B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8D5F666827F4AE4700ACB97B /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8D5F666E27F5E7C100ACB97B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4C0AB1B527F5EF5C0070C4AF /* OfficeUpdatesService.swift */,
+				4C0AB1A027F4A5040070C4AF /* BeaconEmitter.swift */,
+				4C0AB1A227F4A5EE0070C4AF /* BeaconDetector.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8D5F666F27F5E7DB00ACB97B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				4C0AB1A427F4A64D0070C4AF /* Constants.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,11 +136,6 @@
 			dependencies = (
 			);
 			name = Beacoffice;
-			packageProductDependencies = (
-				4C0AB1AB27F5DD800070C4AF /* FirebaseFirestore */,
-				4C0AB1AD27F5DD800070C4AF /* FirebaseFirestoreCombine-Community */,
-				4C0AB1AF27F5DD800070C4AF /* FirebaseFirestoreSwift-Beta */,
-			);
 			productName = Beacoffice;
 			productReference = 8D5F665727F46A1700ACB97B /* Beacoffice.app */;
 			productType = "com.apple.product-type.application";
@@ -140,9 +164,6 @@
 				Base,
 			);
 			mainGroup = 8D5F664E27F46A1600ACB97B;
-			packageReferences = (
-				4C0AB1AA27F5DD800070C4AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-			);
 			productRefGroup = 8D5F665827F46A1700ACB97B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -159,7 +180,7 @@
 			files = (
 				8D5F666227F46A1A00ACB97B /* Preview Assets.xcassets in Resources */,
 				8D5F665F27F46A1A00ACB97B /* Assets.xcassets in Resources */,
-				4C0AB1A927F5DB720070C4AF /* GoogleService-Info.plist in Resources */,
+				4C0AB1B427F5EF4E0070C4AF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,12 +191,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C0AB1B627F5EF5C0070C4AF /* OfficeUpdatesService.swift in Sources */,
 				4C0AB1A527F4A64D0070C4AF /* Constants.swift in Sources */,
 				8D5F665D27F46A1700ACB97B /* ContentView.swift in Sources */,
 				4C0AB1A327F4A5EE0070C4AF /* BeaconDetector.swift in Sources */,
 				8D5F665B27F46A1700ACB97B /* BeacofficeApp.swift in Sources */,
-				4C0AB1B227F5DDEE0070C4AF /* OfficeUpdatesService.swift in Sources */,
 				8D5F666927F4AE4700ACB97B /* ViewModel.swift in Sources */,
+				8D5F666B27F5E79A00ACB97B /* DetectorView.swift in Sources */,
 				4C0AB1A127F4A5040070C4AF /* BeaconEmitter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,35 +407,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4C0AB1AA27F5DD800070C4AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4C0AB1AB27F5DD800070C4AF /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4C0AB1AA27F5DD800070C4AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		4C0AB1AD27F5DD800070C4AF /* FirebaseFirestoreCombine-Community */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4C0AB1AA27F5DD800070C4AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseFirestoreCombine-Community";
-		};
-		4C0AB1AF27F5DD800070C4AF /* FirebaseFirestoreSwift-Beta */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4C0AB1AA27F5DD800070C4AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseFirestoreSwift-Beta";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8D5F664F27F46A1600ACB97B /* Project object */;
 }

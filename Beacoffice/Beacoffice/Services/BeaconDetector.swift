@@ -18,9 +18,9 @@ extension CLAuthorizationStatus {
 
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     
-    var didChange = PassthroughSubject<Void, Never>()
     var locationManager = CLLocationManager()
     @Published var lastDistance = CLProximity.unknown
+    @Published var viewModel: ViewModel = ViewModel()
     
     private let constraint = CLBeaconIdentityConstraint(uuid: Constants.beaconUUID)
     private lazy var beaconRegion = CLBeaconRegion(beaconIdentityConstraint: constraint, identifier: Constants.beaconId)
@@ -28,14 +28,14 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     override init() {
         super.init()
-        
         locationManager.delegate = self
-
+        
         if locationManager.authorizationStatus.isAuthorized {
             startScanning()
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
+        
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager, status: CLAuthorizationStatus) {
@@ -57,6 +57,15 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         if let beacon = beacons.first {
             updateDistance(beacon.proximity)
+            
+            switch beacon.proximity {
+            case .immediate:
+                viewModel.distanceString = "Lava"
+            case .near:
+                viewModel.distanceString = "Wind"
+            default:
+                viewModel.distanceString = "Ice"
+            }
         }
     }
     
@@ -68,21 +77,5 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     func updateDistance(_ distance: CLProximity) {
         lastDistance = distance
         print(distance.rawValue)
-        didChange.send(())
-    }
-}
-
-
-extension CLProximity {
-    
-    var displayString: String {
-        switch self {
-        case CLProximity.immediate:
-            return "Lava"
-        case CLProximity.near:
-            return "Wind"
-        default:
-            return "Ice"
-        }
     }
 }
