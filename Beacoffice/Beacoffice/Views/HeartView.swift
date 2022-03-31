@@ -12,7 +12,7 @@ struct HeartView: View {
     
     var body: some View {
         
-        Image(systemName: "heart.fill")
+        Image("TrainlineHeart")
             .resizable()
             .frame(width: 50, height: 50)
             .foregroundColor(.red)
