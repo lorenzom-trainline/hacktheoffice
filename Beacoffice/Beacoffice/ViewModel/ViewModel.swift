@@ -10,9 +10,8 @@ import SwiftUI
 class ViewModel: ObservableObject {
     
     @Published var distanceString: String?
-    @Published var officeUpdate: OfficeUpdateData = OfficeUpdateData(someString: "")
-    private var lastBeaconDetected: LocalBeacon?
-
+    @Published var officeUpdate: OfficeUpdateData? = nil
+    
     private let officeUpdatesService: OfficeUpdatesService
     private let beaconDetector: BeaconDetector
     
@@ -55,8 +54,8 @@ class ViewModel: ObservableObject {
     
     func sendNotification(_ data: OfficeUpdateData) {
         let content = UNMutableNotificationContent()
-        content.title = "Trainline Office"
-        content.subtitle = data.someString
+        content.title = data.title
+        content.subtitle = data.body
         content.sound = UNNotificationSound.default
 
         // show this notification five seconds from now

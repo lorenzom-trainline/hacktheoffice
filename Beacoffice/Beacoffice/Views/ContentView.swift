@@ -14,25 +14,33 @@ struct ContentView: View {
                                               beaconDetector: BeaconDetector())
 
     var body: some View {
-        VStack {
+        ZStack {
+            Color(UIColor(red: 0.83, green: 0.95, blue: 0.91, alpha: 1.00)).ignoresSafeArea()
 
-            HeartView()
-            Button(action: {
-                print("Button pressed")
-            }) {
-                HStack {
-                    Image(systemName: "bookmark.fill")
-                    Text("Detector")
-                }
-            }
-            .buttonStyle(GradientButtonStyle())
-            
             VStack {
-                DetectorView(viewModel: viewModel)
-                Button("Test firebase") {
-                    viewModel.checkService()
+
+                HeartView()
+                Button(action: {
+                    print("Button pressed")
+                }) {
+                    HStack {
+                        Image(systemName: "bookmark.fill")
+                        Text("Detector")
+                    }
                 }
-                Text(viewModel.officeUpdate.someString)
+                .buttonStyle(GradientButtonStyle())
+                
+                VStack {
+                    DetectorView(viewModel: viewModel)
+                    Button("Test firebase") {
+                        viewModel.checkService()
+                    }
+                    if let officeUpdate = viewModel.officeUpdate {
+                        Text(officeUpdate.title)
+                        Text(officeUpdate.body)
+                        Text(officeUpdate.officeName)
+                    }
+                }
             }
         }
     }
