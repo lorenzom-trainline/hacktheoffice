@@ -21,9 +21,9 @@ class ViewModel: ObservableObject {
     }
 
     
-    func checkService() {
+    func checkService(major: Int = 1, minor: Int = 1) {
         
-        self.officeUpdatesService.fetchOfficeInfo(major: 1, minor: 1) { result in
+        self.officeUpdatesService.fetchOfficeInfo(major: major, minor: minor) { result in
             
             switch result {
             case .success(let update):

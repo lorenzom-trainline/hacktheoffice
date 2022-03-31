@@ -14,7 +14,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            
+            HeartView()
             Button(action: {
                 print("Button pressed")
             }) {
