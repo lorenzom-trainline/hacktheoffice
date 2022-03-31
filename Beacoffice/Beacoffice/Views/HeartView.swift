@@ -14,11 +14,11 @@ struct HeartView: View {
         
         Image("TrainlineHeart")
             .resizable()
-            .frame(width: 50, height: 50)
+            .frame(width: 200, height: 200)
             .foregroundColor(.red)
             .scaleEffect(animationAmount)
             .animation(
-                .linear(duration: 0.6)
+                .linear(duration: 0.9)
                     .delay(0.1)
                     .repeatForever(autoreverses: true),
                 value: animationAmount)

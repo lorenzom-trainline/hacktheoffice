@@ -17,6 +17,22 @@ struct DetectorView: View {
     }
 
     var body: some View {
-        Text(viewModel.distanceString ?? "")
+        ZStack {
+            Color(UIColor(red: 0.83, green: 0.95, blue: 0.91, alpha: 1.00)).ignoresSafeArea()
+            
+            VStack {
+                Rectangle()
+                    .padding()
+                    .overlay(
+                        ZStack {
+                            VStack {
+                                Color.white
+                                Text(viewModel.distanceString ?? "")
+                            }
+                        }
+                    )
+
+            }
+        }
     }
 }
