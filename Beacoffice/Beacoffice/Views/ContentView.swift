@@ -35,7 +35,11 @@ struct ContentView: View {
                     Button("Test firebase") {
                         viewModel.checkService()
                     }
-                    Text(viewModel.officeUpdate.someString)
+                    if let officeUpdate = viewModel.officeUpdate {
+                        Text(officeUpdate.title)
+                        Text(officeUpdate.body)
+                        Text(officeUpdate.officeName)
+                    }
                 }
             }
         }

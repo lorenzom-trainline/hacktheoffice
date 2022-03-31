@@ -9,13 +9,9 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-struct OfficeUpdateData {
-    
-    let someString: String
-}
-
 enum OfficeUpdatesError: Error {
- 
+
+    case unexpectedData
     case missingMajorMinorKey
     case missingDocument
 }
@@ -25,14 +21,6 @@ typealias OfficeUpdatesClosure = (Result<OfficeUpdateData, OfficeUpdatesError>) 
 protocol OfficeUpdatesService {
     
     func fetchOfficeInfo(major: Int, minor: Int, completion: @escaping OfficeUpdatesClosure)
-}
-
-class OfficeUpdatesFakeService: OfficeUpdatesService {
-    
-    func fetchOfficeInfo(major: Int, minor: Int, completion: @escaping OfficeUpdatesClosure) {
-
-        completion(.success(OfficeUpdateData(someString: "Fake bla bla")))
-    }
 }
 
 class OfficeUpdatesFirebaseService: OfficeUpdatesService {
@@ -48,15 +36,20 @@ class OfficeUpdatesFirebaseService: OfficeUpdatesService {
 
         let key = "\(major).\(minor)"
         
-        let docRef = db.collection("office").document("offices")
+        let docRef = db.collection("office").document("ios")
 
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                  // let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                 
-                if let keyData = document.data()?[key] as? String {
-                    completion(.success(OfficeUpdateData(someString: keyData)))
-
+                if let dict = document.data()?[key] as? [String: String] {
+                   
+                    if let data = OfficeUpdateData.createFrom(dict: dict) {
+                        completion(.success(data))
+                    } else {
+                        completion(.failure(.unexpectedData))
+                    }
+                                   
                 } else {
                     completion(.failure(.missingMajorMinorKey))
                 }
