@@ -55,6 +55,10 @@ struct ContentView: View {
             
             VStack {
                 DetectorView(beaconDetector: beaconDetector)
+                Button("Test firebase") {
+                    beaconDetector.viewModel.checkService()
+                }
+
             }
         }
     }
