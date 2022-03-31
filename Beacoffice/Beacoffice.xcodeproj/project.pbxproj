@@ -22,6 +22,7 @@
 		8D5F666927F4AE4700ACB97B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F666827F4AE4700ACB97B /* ViewModel.swift */; };
 		8D5F666B27F5E79A00ACB97B /* DetectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F666A27F5E79A00ACB97B /* DetectorView.swift */; };
 		8D5F667127F5EEEB00ACB97B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F667027F5EEEB00ACB97B /* AppDelegate.swift */; };
+		8D5F667327F5F96900ACB97B /* HeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F667227F5F96900ACB97B /* HeartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		8D5F666827F4AE4700ACB97B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8D5F666A27F5E79A00ACB97B /* DetectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectorView.swift; sourceTree = "<group>"; };
 		8D5F667027F5EEEB00ACB97B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8D5F667227F5F96900ACB97B /* HeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				8D5F665C27F46A1700ACB97B /* ContentView.swift */,
+				8D5F667227F5F96900ACB97B /* HeartView.swift */,
 				8D5F666A27F5E79A00ACB97B /* DetectorView.swift */,
 			);
 			path = Views;
@@ -211,6 +214,7 @@
 				8D5F667127F5EEEB00ACB97B /* AppDelegate.swift in Sources */,
 				4C0AB1B627F5EF5C0070C4AF /* OfficeUpdatesService.swift in Sources */,
 				4C0AB1A527F4A64D0070C4AF /* Constants.swift in Sources */,
+				8D5F667327F5F96900ACB97B /* HeartView.swift in Sources */,
 				8D5F665D27F46A1700ACB97B /* ContentView.swift in Sources */,
 				4C0AB1A327F4A5EE0070C4AF /* BeaconDetector.swift in Sources */,
 				8D5F665B27F46A1700ACB97B /* BeacofficeApp.swift in Sources */,
