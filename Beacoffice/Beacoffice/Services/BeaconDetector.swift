@@ -16,6 +16,17 @@ extension CLAuthorizationStatus {
     }
 }
 
+struct LocalBeacon: Equatable {
+    let major: Int
+    let minor: Int
+}
+
+extension CLBeacon {
+    var localBeacon: LocalBeacon {
+        .init(major: major.intValue, minor: minor.intValue)
+    }
+}
+
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
@@ -24,7 +35,7 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let constraint = CLBeaconIdentityConstraint(uuid: Constants.beaconUUID)
     private lazy var beaconRegion = CLBeaconRegion(beaconIdentityConstraint: constraint, identifier: Constants.beaconId)
 
-    var distanceUpdated: ((CLProximity) -> Void)? = nil
+    var distanceUpdated: ((LocalBeacon?) -> Void)? = nil
     
     override init() {
         super.init()
@@ -55,10 +66,7 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         
-        if let beacon = beacons.first {
-            
-            distanceUpdated?(beacon.proximity)
-        }
+        distanceUpdated?(beacons.filter { $0.proximity != .unknown }.first?.localBeacon)
     }
     
     func stopScanning() {

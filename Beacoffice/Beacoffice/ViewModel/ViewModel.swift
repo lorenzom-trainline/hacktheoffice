@@ -11,7 +11,8 @@ class ViewModel: ObservableObject {
     
     @Published var distanceString: String?
     @Published var officeUpdate: OfficeUpdateData? = nil
-    
+    private var lastBeaconDetected: LocalBeacon?
+
     private let officeUpdatesService: OfficeUpdatesService
     private let beaconDetector: BeaconDetector
     
@@ -19,16 +20,20 @@ class ViewModel: ObservableObject {
         self.officeUpdatesService = officeUpdatesService
         self.beaconDetector = beaconDetector
         
-        beaconDetector.distanceUpdated = { proximity in
-            
-            switch proximity {
-            case .immediate:
-                self.distanceString = "Lava"
-            case .near:
-                self.distanceString = "Wind"
-            default:
-                self.distanceString = "Ice"
+        beaconDetector.distanceUpdated = { beacon in
+            if self.lastBeaconDetected != beacon {
+                self.lastBeaconDetected = beacon
+                if let beacon = beacon {
+                    self.checkService(major: beacon.major, minor: beacon.minor)
+                }
             }
+//            case .immediate:
+//                self.distanceString = "Lava"
+//            case .near:
+//                self.distanceString = "Wind"
+//            default:
+//                self.distanceString = "Ice"
+//            }
         }
     }
     
