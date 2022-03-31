@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var enableEmitter = true
-    private var viewModel = ViewModel()
+    private var viewModel = ViewModel(officeUpdatesService: OfficeUpdatesFirebaseService())
 
     var body: some View {
         VStack {
@@ -27,6 +27,9 @@ struct ContentView: View {
                     
                 } else {
                     DetectorView(viewModel: viewModel)
+                }
+                Button("Test firebase") {
+                    viewModel.checkService()
                 }
             }
         }
