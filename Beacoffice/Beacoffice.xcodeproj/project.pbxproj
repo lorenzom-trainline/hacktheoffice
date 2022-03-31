@@ -16,6 +16,7 @@
 		8D5F666227F46A1A00ACB97B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F666127F46A1A00ACB97B /* Preview Assets.xcassets */; };
 		8D5F666927F4AE4700ACB97B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F666827F4AE4700ACB97B /* ViewModel.swift */; };
 		8D5F666B27F5E79A00ACB97B /* DetectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F666A27F5E79A00ACB97B /* DetectorView.swift */; };
+		8D5F667127F5EEEB00ACB97B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F667027F5EEEB00ACB97B /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		8D5F666127F46A1A00ACB97B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8D5F666827F4AE4700ACB97B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		8D5F666A27F5E79A00ACB97B /* DetectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectorView.swift; sourceTree = "<group>"; };
+		8D5F667027F5EEEB00ACB97B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				8D5F665A27F46A1700ACB97B /* BeacofficeApp.swift */,
+				8D5F667027F5EEEB00ACB97B /* AppDelegate.swift */,
 				8D5F666C27F5E7A000ACB97B /* Views */,
 				8D5F666D27F5E7B800ACB97B /* ViewModel */,
 				8D5F666E27F5E7C100ACB97B /* Services */,
@@ -184,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D5F667127F5EEEB00ACB97B /* AppDelegate.swift in Sources */,
 				4C0AB1A527F4A64D0070C4AF /* Constants.swift in Sources */,
 				8D5F665D27F46A1700ACB97B /* ContentView.swift in Sources */,
 				4C0AB1A327F4A5EE0070C4AF /* BeaconDetector.swift in Sources */,
