@@ -11,7 +11,8 @@ class ViewModel: ObservableObject {
     
     @Published var distanceString: String?
     @Published var officeUpdate: OfficeUpdateData? = nil
-    
+    private var lastBeaconDetected: LocalBeacon?
+
     private let officeUpdatesService: OfficeUpdatesService
     private let beaconDetector: BeaconDetector
     
