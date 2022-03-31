@@ -22,11 +22,15 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     @Published var lastDistance = CLProximity.unknown
     
+    private let constraint = CLBeaconIdentityConstraint(uuid: Constants.beaconUUID)
+    private lazy var beaconRegion = CLBeaconRegion(beaconIdentityConstraint: constraint, identifier: Constants.beaconId)
+
+    
     override init() {
         super.init()
         
         locationManager.delegate = self
-        
+
         if locationManager.authorizationStatus.isAuthorized {
             startScanning()
         } else {
@@ -45,10 +49,6 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func startScanning() {
-        
-        let constraint = CLBeaconIdentityConstraint(uuid: Constants.beaconUUID)
-        let beaconRegion = CLBeaconRegion(beaconIdentityConstraint: constraint, identifier: Constants.beaconId)
-
         locationManager.startMonitoring(for: beaconRegion)
         locationManager.startRangingBeacons(satisfying: constraint)
     }
@@ -59,10 +59,30 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
             updateDistance(beacon.proximity)
         }
     }
+    
+    func stopScanning() {
+        locationManager.stopMonitoring(for: beaconRegion)
+        locationManager.stopRangingBeacons(satisfying: constraint)
+    }
 
     func updateDistance(_ distance: CLProximity) {
         lastDistance = distance
         print(distance.rawValue)
         didChange.send(())
+    }
+}
+
+
+extension CLProximity {
+    
+    var displayString: String {
+        switch self {
+        case CLProximity.immediate:
+            return "Lava"
+        case CLProximity.near:
+            return "Wind"
+        default:
+            return "Ice"
+        }
     }
 }

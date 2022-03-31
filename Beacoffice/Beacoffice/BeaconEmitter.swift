@@ -13,9 +13,9 @@ class BeaconEmitter: NSObject, CBPeripheralManagerDelegate {
     
     var localBeacon: CLBeaconRegion!
     var beaconPeripheralData: NSDictionary!
-    var peripheralManager: CBPeripheralManager!
+    var peripheralManager: CBPeripheralManager?
 
-     func initLocalBeacon() {
+     func startLocalBeacon() {
          if localBeacon != nil {
              stopLocalBeacon()
          }
@@ -29,7 +29,7 @@ class BeaconEmitter: NSObject, CBPeripheralManagerDelegate {
      }
 
      func stopLocalBeacon() {
-         peripheralManager.stopAdvertising()
+         peripheralManager?.stopAdvertising()
          peripheralManager = nil
          beaconPeripheralData = nil
          localBeacon = nil
@@ -38,9 +38,9 @@ class BeaconEmitter: NSObject, CBPeripheralManagerDelegate {
     @objc func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
         
          if peripheral.state == .poweredOn {
-             peripheralManager.startAdvertising(beaconPeripheralData as? [String: Any])
+             peripheralManager?.startAdvertising(beaconPeripheralData as? [String: Any])
          } else if peripheral.state == .poweredOff {
-             peripheralManager.stopAdvertising()
+             peripheralManager?.stopAdvertising()
          }
      }
     
