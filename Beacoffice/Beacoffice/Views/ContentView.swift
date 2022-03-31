@@ -24,10 +24,14 @@ struct ContentView: View {
                     
                     VStack {
                         DetectorView(viewModel: viewModel)
-                        Text(viewModel.officeUpdate.someString)
                     }
                 } else {
                     HeartView()
+                    if let officeUpdate = viewModel.officeUpdate {
+                        Text(officeUpdate.title)
+                        Text(officeUpdate.body)
+                        Text(officeUpdate.officeName)
+                    }
                 }
             }
         }

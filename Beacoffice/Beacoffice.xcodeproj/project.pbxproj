@@ -15,6 +15,7 @@
 		4C0AB1B927F5F00C0070C4AF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0AB1B827F5F00C0070C4AF /* FirebaseFirestore */; };
 		4C0AB1BB27F5F00C0070C4AF /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0AB1BA27F5F00C0070C4AF /* FirebaseFirestoreCombine-Community */; };
 		4C0AB1BD27F5F00C0070C4AF /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0AB1BC27F5F00C0070C4AF /* FirebaseFirestoreSwift-Beta */; };
+		4C0AB1C027F5FE7B0070C4AF /* OfficeUpdateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1BF27F5FE7B0070C4AF /* OfficeUpdateData.swift */; };
 		8D5F665B27F46A1700ACB97B /* BeacofficeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F665A27F46A1700ACB97B /* BeacofficeApp.swift */; };
 		8D5F665D27F46A1700ACB97B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F665C27F46A1700ACB97B /* ContentView.swift */; };
 		8D5F665F27F46A1A00ACB97B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F665E27F46A1A00ACB97B /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		4C0AB1A427F4A64D0070C4AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4C0AB1B327F5EF4E0070C4AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4C0AB1B527F5EF5C0070C4AF /* OfficeUpdatesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfficeUpdatesService.swift; path = Beacoffice/Services/OfficeUpdatesService.swift; sourceTree = SOURCE_ROOT; };
+		4C0AB1BF27F5FE7B0070C4AF /* OfficeUpdateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeUpdateData.swift; sourceTree = "<group>"; };
 		8D5F665727F46A1700ACB97B /* Beacoffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beacoffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5F665A27F46A1700ACB97B /* BeacofficeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeacofficeApp.swift; sourceTree = "<group>"; };
 		8D5F665C27F46A1700ACB97B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C0AB1BE27F5FE030070C4AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C0AB1BF27F5FE7B0070C4AF /* OfficeUpdateData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8D5F664E27F46A1600ACB97B = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 				8D5F665A27F46A1700ACB97B /* BeacofficeApp.swift */,
 				8D5F667027F5EEEB00ACB97B /* AppDelegate.swift */,
 				8D5F666C27F5E7A000ACB97B /* Views */,
+				4C0AB1BE27F5FE030070C4AF /* Model */,
 				8D5F666D27F5E7B800ACB97B /* ViewModel */,
 				8D5F666E27F5E7C100ACB97B /* Services */,
 				8D5F666F27F5E7DB00ACB97B /* Utility */,
@@ -211,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C0AB1C027F5FE7B0070C4AF /* OfficeUpdateData.swift in Sources */,
 				8D5F667127F5EEEB00ACB97B /* AppDelegate.swift in Sources */,
 				4C0AB1B627F5EF5C0070C4AF /* OfficeUpdatesService.swift in Sources */,
 				4C0AB1A527F4A64D0070C4AF /* Constants.swift in Sources */,
