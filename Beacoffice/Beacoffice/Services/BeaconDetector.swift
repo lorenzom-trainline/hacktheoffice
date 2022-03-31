@@ -20,7 +20,7 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
     @Published var lastDistance = CLProximity.unknown
-    @Published var viewModel: ViewModel = ViewModel()
+    @Published var viewModel: ViewModel = ViewModel(officeUpdatesService: OfficeUpdatesFirebaseService())
     
     private let constraint = CLBeaconIdentityConstraint(uuid: Constants.beaconUUID)
     private lazy var beaconRegion = CLBeaconRegion(beaconIdentityConstraint: constraint, identifier: Constants.beaconId)
