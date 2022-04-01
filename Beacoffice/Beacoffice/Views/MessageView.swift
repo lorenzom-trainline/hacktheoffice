@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct DetectorView: View {
+struct MessageView: View {
     
     let beaconDetector = BeaconDetector()
     private let viewModel: ViewModel
-    @Binding var close: Bool = false
+    @Binding var messageReceived: Bool
     
-    init(viewModel: ViewModel) {
+    init(viewModel: ViewModel, messageReceived: Binding<Bool>) {
         self.viewModel = viewModel
+        self._messageReceived = messageReceived
     }
 
     var body: some View {
@@ -30,8 +31,8 @@ struct DetectorView: View {
                                 HStack {
                                     Spacer()
                                     Button {
-                                        close = true
                                         print("close")
+                                        messageReceived = false
                                     } label: {
                                         Image(systemName: "xmark")
                                             .font(Font.title3.weight(.bold))
@@ -40,7 +41,11 @@ struct DetectorView: View {
                                     }
                                 }
                                 Spacer()
-                                Text(viewModel.distanceString ?? "Test")
+                                Text(viewModel.distanceString ?? "We're blasting off 🚀")
+                                    .font(Font.title2.weight(.bold))
+                                Text("Add something about Trainline here you can decide, keep it short and sweet!")
+                                    .font(Font.body.weight(.medium))
+                                    .padding()
                                 
                                 Spacer()
                             }

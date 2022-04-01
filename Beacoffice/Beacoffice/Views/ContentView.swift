@@ -12,21 +12,45 @@ struct ContentView: View {
     
     @ObservedObject var viewModel = ViewModel(officeUpdatesService: OfficeUpdatesFirebaseService(),
                                               beaconDetector: BeaconDetector())
-    @State var messageReceived: Bool = true 
+    @State var messageReceived: Bool = false
+    @State var toggleDetector: Bool = true
+    
     
     var body: some View {
         ZStack {
-            Color(UIColor(red: 0.83, green: 0.95, blue: 0.91, alpha: 1.00)).ignoresSafeArea()
+            Color(toggleDetector ? UIColor(red: 0.83, green: 0.95, blue: 0.91, alpha: 1.00) : UIColor(red: 0.90, green: 0.90, blue: 0.90, alpha: 1.00)).ignoresSafeArea()
             
             VStack {
-                
                 if messageReceived {
                     
                     VStack {
-                        DetectorView(viewModel: viewModel)
+                        MessageView(viewModel: viewModel, messageReceived: $messageReceived)
                     }
                 } else {
-                    HeartView()
+                    HStack {
+                        Spacer()
+                        Toggle(isOn: $toggleDetector) {}
+                        .toggleStyle(SwitchToggleStyle(tint: Color(UIColor(red: 0.14, green: 0.20, blue: 0.77, alpha: 1.00))))
+                    }
+                    .padding()
+                    
+                    Spacer()
+                    
+                    if toggleDetector {
+    
+                        HeartView()
+                            .padding(EdgeInsets(top: -30, leading: 0, bottom: 30, trailing: 0))
+                        
+                    } else {
+                        Image("TrainlineHeart-greyed")
+                            .resizable()
+                            .frame(width: 144, height: 118.3)
+                            .padding(EdgeInsets(top: -30, leading: 0, bottom: 30, trailing: 0))
+                            
+                    }
+                    
+                    Spacer()
+                    
                     if let officeUpdate = viewModel.officeUpdate {
                         Text(officeUpdate.title)
                         Text(officeUpdate.body)
