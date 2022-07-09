@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OfficeUpdateData {
+struct OfficeUpdateData: Equatable {
     let title: String
     let body: String
     let officeName: String

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct BeacofficeApp: App {
@@ -14,7 +15,10 @@ struct BeacofficeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BeaconDetectorView(store: Store(
+                initialState: BeaconDetectorState(),
+                reducer: beaconDetectorReducer,
+                environment: .live(environment: BeaconDetectorEnvironment())))
         }
     }
 }

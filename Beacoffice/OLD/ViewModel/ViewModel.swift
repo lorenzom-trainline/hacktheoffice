@@ -37,7 +37,7 @@ class ViewModel: ObservableObject {
         }
     }
     
-    func checkService(major: Int = 1, minor: Int = 1) {
+    private func checkService(major: Int = 1, minor: Int = 1) {
         
         self.officeUpdatesService.fetchOfficeInfo(major: major, minor: minor) { result in
             
@@ -53,7 +53,7 @@ class ViewModel: ObservableObject {
         }
     }
     
-    func sendNotification(_ data: OfficeUpdateData) {
+    private func sendNotification(_ data: OfficeUpdateData) {
         let content = UNMutableNotificationContent()
         content.title = data.title
         content.subtitle = data.body
