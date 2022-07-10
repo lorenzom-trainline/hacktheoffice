@@ -11,8 +11,8 @@ import ComposableArchitecture
 
 struct BeaconDetectorView: View {
     
-    @ObservedObject var viewModel = ViewModel(officeUpdatesService: OfficeUpdatesFirebaseService(),
-                                              beaconDetector: BeaconDetector())
+//    @ObservedObject var viewModel = ViewModel(officeUpdatesService: OfficeUpdatesFirebaseService(),
+//                                              beaconDetector: BeaconDetector())
     @State var messageReceived: Bool = false
 //    @State var toggleDetector: Bool = true
     
@@ -27,7 +27,7 @@ struct BeaconDetectorView: View {
                     if messageReceived {
                         
                         VStack {
-                            MessageView(viewModel: viewModel, messageReceived: $messageReceived)
+                            MessageView(messageReceived: $messageReceived)
                         }
                     } else {
                         HStack {
@@ -55,11 +55,11 @@ struct BeaconDetectorView: View {
                         
                         Spacer()
                         
-                        if let officeUpdate = viewModel.officeUpdate {
-                            Text(officeUpdate.title)
-                            Text(officeUpdate.body)
-                            Text(officeUpdate.officeName)
-                        }
+//                        if let officeUpdate = viewModel.officeUpdate {
+//                            Text(officeUpdate.title)
+//                            Text(officeUpdate.body)
+//                            Text(officeUpdate.officeName)
+//                        }
                     }
                 }
             }
@@ -74,7 +74,8 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         BeaconDetectorView(store: Store(initialState: BeaconDetectorState(),
                                         reducer: beaconDetectorReducer,
-                                        environment: .dev(environment: BeaconDetectorEnvironment())))
+                                        environment: .dev(environment: BeaconDetectorEnvironment(eventsService: BeaconEventsFirebaseService(),
+                                                                                                 beaconDetector: BeaconDetector()))))
     }
 }
 

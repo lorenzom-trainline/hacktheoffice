@@ -10,11 +10,11 @@ import SwiftUI
 struct MessageView: View {
     
     let beaconDetector = BeaconDetector()
-    private let viewModel: ViewModel
+//    private let viewModel: ViewModel
     @Binding var messageReceived: Bool
     
-    init(viewModel: ViewModel, messageReceived: Binding<Bool>) {
-        self.viewModel = viewModel
+    init(messageReceived: Binding<Bool>) {
+//        self.viewModel = viewModel
         self._messageReceived = messageReceived
     }
 
@@ -41,8 +41,8 @@ struct MessageView: View {
                                     }
                                 }
                                 Spacer()
-                                Text(viewModel.distanceString ?? "We're blasting off 🚀")
-                                    .font(Font.title2.weight(.bold))
+//                                Text(viewModel.distanceString ?? "We're blasting off 🚀")
+//                                    .font(Font.title2.weight(.bold))
                                 Text("Add something about Trainline here you can decide, keep it short and sweet!")
                                     .font(Font.body.weight(.medium))
                                     .padding()

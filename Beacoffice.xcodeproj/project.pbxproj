@@ -7,15 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C0AB1A127F4A5040070C4AF /* BeaconEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1A027F4A5040070C4AF /* BeaconEmitter.swift */; };
 		4C0AB1A327F4A5EE0070C4AF /* BeaconDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1A227F4A5EE0070C4AF /* BeaconDetector.swift */; };
 		4C0AB1A527F4A64D0070C4AF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1A427F4A64D0070C4AF /* Constants.swift */; };
 		4C0AB1B427F5EF4E0070C4AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C0AB1B327F5EF4E0070C4AF /* GoogleService-Info.plist */; };
-		4C0AB1B627F5EF5C0070C4AF /* OfficeUpdatesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1B527F5EF5C0070C4AF /* OfficeUpdatesService.swift */; };
+		4C0AB1B627F5EF5C0070C4AF /* BeaconEventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1B527F5EF5C0070C4AF /* BeaconEventsService.swift */; };
 		4C0AB1B927F5F00C0070C4AF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0AB1B827F5F00C0070C4AF /* FirebaseFirestore */; };
 		4C0AB1BB27F5F00C0070C4AF /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0AB1BA27F5F00C0070C4AF /* FirebaseFirestoreCombine-Community */; };
 		4C0AB1BD27F5F00C0070C4AF /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 4C0AB1BC27F5F00C0070C4AF /* FirebaseFirestoreSwift-Beta */; };
-		4C0AB1C027F5FE7B0070C4AF /* OfficeUpdateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1BF27F5FE7B0070C4AF /* OfficeUpdateData.swift */; };
+		4C0AB1C027F5FE7B0070C4AF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0AB1BF27F5FE7B0070C4AF /* Event.swift */; };
 		4C845B9628798B9300A9751E /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 4C845B9528798B9300A9751E /* ComposableArchitecture */; };
 		4C845B9928798D2300A9751E /* BeaconDetectorFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C845B9828798D2300A9751E /* BeaconDetectorFeature.swift */; };
 		4C845B9C28798F4D00A9751E /* SystemEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C845B9B28798F4D00A9751E /* SystemEnvironment.swift */; };
@@ -23,7 +22,6 @@
 		8D5F665D27F46A1700ACB97B /* BeaconDetectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F665C27F46A1700ACB97B /* BeaconDetectorView.swift */; };
 		8D5F665F27F46A1A00ACB97B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F665E27F46A1A00ACB97B /* Assets.xcassets */; };
 		8D5F666227F46A1A00ACB97B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5F666127F46A1A00ACB97B /* Preview Assets.xcassets */; };
-		8D5F666927F4AE4700ACB97B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F666827F4AE4700ACB97B /* ViewModel.swift */; };
 		8D5F666B27F5E79A00ACB97B /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F666A27F5E79A00ACB97B /* MessageView.swift */; };
 		8D5F667127F5EEEB00ACB97B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F667027F5EEEB00ACB97B /* AppDelegate.swift */; };
 		8D5F667327F5F96900ACB97B /* HeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5F667227F5F96900ACB97B /* HeartView.swift */; };
@@ -34,8 +32,8 @@
 		4C0AB1A227F4A5EE0070C4AF /* BeaconDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetector.swift; sourceTree = "<group>"; };
 		4C0AB1A427F4A64D0070C4AF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4C0AB1B327F5EF4E0070C4AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		4C0AB1B527F5EF5C0070C4AF /* OfficeUpdatesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OfficeUpdatesService.swift; path = Beacoffice/OLD/Services/OfficeUpdatesService.swift; sourceTree = SOURCE_ROOT; };
-		4C0AB1BF27F5FE7B0070C4AF /* OfficeUpdateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficeUpdateData.swift; sourceTree = "<group>"; };
+		4C0AB1B527F5EF5C0070C4AF /* BeaconEventsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeaconEventsService.swift; path = Beacoffice/OLD/Services/BeaconEventsService.swift; sourceTree = SOURCE_ROOT; };
+		4C0AB1BF27F5FE7B0070C4AF /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		4C845B9828798D2300A9751E /* BeaconDetectorFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetectorFeature.swift; sourceTree = "<group>"; };
 		4C845B9B28798F4D00A9751E /* SystemEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemEnvironment.swift; sourceTree = "<group>"; };
 		8D5F665727F46A1700ACB97B /* Beacoffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beacoffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,7 +65,7 @@
 		4C0AB1BE27F5FE030070C4AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4C0AB1BF27F5FE7B0070C4AF /* OfficeUpdateData.swift */,
+				4C0AB1BF27F5FE7B0070C4AF /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -160,9 +158,9 @@
 		8D5F666E27F5E7C100ACB97B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				4C0AB1B527F5EF5C0070C4AF /* OfficeUpdatesService.swift */,
-				4C0AB1A027F4A5040070C4AF /* BeaconEmitter.swift */,
+				4C0AB1B527F5EF5C0070C4AF /* BeaconEventsService.swift */,
 				4C0AB1A227F4A5EE0070C4AF /* BeaconDetector.swift */,
+				4C0AB1A027F4A5040070C4AF /* BeaconEmitter.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -256,19 +254,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C0AB1C027F5FE7B0070C4AF /* OfficeUpdateData.swift in Sources */,
+				4C0AB1C027F5FE7B0070C4AF /* Event.swift in Sources */,
 				8D5F667127F5EEEB00ACB97B /* AppDelegate.swift in Sources */,
-				4C0AB1B627F5EF5C0070C4AF /* OfficeUpdatesService.swift in Sources */,
+				4C0AB1B627F5EF5C0070C4AF /* BeaconEventsService.swift in Sources */,
 				4C0AB1A527F4A64D0070C4AF /* Constants.swift in Sources */,
 				4C845B9928798D2300A9751E /* BeaconDetectorFeature.swift in Sources */,
 				8D5F667327F5F96900ACB97B /* HeartView.swift in Sources */,
 				8D5F665D27F46A1700ACB97B /* BeaconDetectorView.swift in Sources */,
 				4C0AB1A327F4A5EE0070C4AF /* BeaconDetector.swift in Sources */,
 				8D5F665B27F46A1700ACB97B /* BeacofficeApp.swift in Sources */,
-				8D5F666927F4AE4700ACB97B /* ViewModel.swift in Sources */,
 				8D5F666B27F5E79A00ACB97B /* MessageView.swift in Sources */,
 				4C845B9C28798F4D00A9751E /* SystemEnvironment.swift in Sources */,
-				4C0AB1A127F4A5040070C4AF /* BeaconEmitter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

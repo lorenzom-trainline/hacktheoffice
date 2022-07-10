@@ -16,6 +16,7 @@ extension CLAuthorizationStatus {
     }
 }
 
+// TODO: Unity LocalBeacon and BeaconId
 struct LocalBeacon: Equatable {
     let major: Int
     let minor: Int
@@ -31,23 +32,37 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
 
-    
     private let constraint = CLBeaconIdentityConstraint(uuid: Constants.beaconUUID)
     private lazy var beaconRegion = CLBeaconRegion(beaconIdentityConstraint: constraint, identifier: Constants.beaconId)
-
-    var distanceUpdated: ((LocalBeacon?) -> Void)? = nil
+    
+    private let passPublisher: PassthroughSubject<LocalBeacon, Error>
+    var publisher: AnyPublisher<LocalBeacon, Error>
     
     override init() {
+        
+        passPublisher = PassthroughSubject<LocalBeacon, Error>()
+        publisher = passPublisher.eraseToAnyPublisher()
+        
         super.init()
         locationManager.delegate = self
         
         if locationManager.authorizationStatus.isAuthorized {
-            startScanning()
+//            startScanning()
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
         
+//        passPublisher.handleEvents(receiveSubscription: { [weak self] _ in
+//            self?.wantToScan = true
+//            print("subscription")
+//        }, receiveCompletion: { _ in
+//            print("completion")
+//        }, receiveCancel: {
+//            print("cancellation")
+//        })
     }
+        
+    // MARK - delegate methods
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager, status: CLAuthorizationStatus) {
         
@@ -55,18 +70,30 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
             CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self),
             CLLocationManager.isRangingAvailable() {
             // all ok
-            startScanning()
+//            startScanning()
         }
-    }
-    
-    func startScanning() {
-        locationManager.startMonitoring(for: beaconRegion)
-        locationManager.startRangingBeacons(satisfying: constraint)
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         
-        distanceUpdated?(beacons.filter { $0.proximity != .unknown }.first?.localBeacon)
+        if let beacon = beacons.filter({ $0.proximity != .unknown }).first?.localBeacon {
+            passPublisher.send(beacon)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        passPublisher.send(completion: Subscribers.Completion.failure(error))
+    }
+    
+    // MARK - private methods
+    
+    func startScanning() {
+        locationManager.startMonitoring(for: beaconRegion)
+        locationManager.startRangingBeacons(satisfying: constraint)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.passPublisher.send(LocalBeacon(major: 1, minor: 1))
+        }
     }
     
     func stopScanning() {

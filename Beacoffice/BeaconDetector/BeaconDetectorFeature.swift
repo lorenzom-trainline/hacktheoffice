@@ -9,21 +9,22 @@ import Combine
 import ComposableArchitecture
 
 struct BeaconDetectorState: Equatable {
-    var isScanning: Bool = true
-    var currentUpdate: OfficeUpdateData? = nil
+    var isScanning = false
+    var currentEvents: [Event] = []
 }
 
-enum BeaconDetectorAction: Equatable {
+enum BeaconDetectorAction {
     case onAppear
     case enable(Bool)
-    case beaconDetected([OfficeUpdateData])
+    case showError(Error?) // TODO: dont allow nil
+    case beaconDetected(BeaconId)
+    case eventsDetected([Event])
 }
 
 struct BeaconDetectorEnvironment {
     
-    // TODO: Need them to return effects
-//    var officeUpdatesService: OfficeUpdatesService
-//    var beaconDetector: BeaconDetector
+    var eventsService: BeaconEventsService
+    var beaconDetector: BeaconDetector
 }
 
 let beaconDetectorReducer = Reducer<
@@ -34,16 +35,45 @@ let beaconDetectorReducer = Reducer<
     
     switch action {
     case .onAppear:
-        state.isScanning = true
-        return Effect(value: .enable(true))
+//        state.isScanning = true
+//        return Effect(value: .enable(true))
+        ()
         
     case .enable(let enable):
         state.isScanning = enable
-        // TODO: toggle beacon detector to start/stop scanning
         
-    case .beaconDetected(let updates):
+        if enable {
+            
+            environment.beaconDetector.startScanning()
+            
+            // TODO: Subscribing each time causes problems
+            return environment.beaconDetector.publisher
+//                .subscribe(on: environment.mainQueue())
+                .receive(on: environment.mainQueue())
+                .map { beacon in BeaconDetectorAction.beaconDetected(BeaconId(major: beacon.major,
+                                                                              minor: beacon.minor)) }
+                .replaceError(with: BeaconDetectorAction.showError(nil))
+                .eraseToEffect()
+        } else {
+            environment.beaconDetector.stopScanning()
+        }
+
+    case .showError(let error):
+        state.isScanning = false
+        // TODO: Handle error
+        
+    case .beaconDetected(let beaconId):
+        
+        return environment.eventsService.fetchEventsPublisher(beaconId: beaconId)
+            .receive(on: environment.mainQueue())
+            .map { events in BeaconDetectorAction.eventsDetected(events) }
+            .replaceError(with: BeaconDetectorAction.showError(nil))
+            .eraseToEffect()
+        
+    case .eventsDetected(let events):
+        print(events)
         ()
-        // TODO: use offficeUpdatesServices
+        // TODO
     }
     
     return .none

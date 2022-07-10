@@ -18,7 +18,8 @@ struct BeacofficeApp: App {
             BeaconDetectorView(store: Store(
                 initialState: BeaconDetectorState(),
                 reducer: beaconDetectorReducer,
-                environment: .live(environment: BeaconDetectorEnvironment())))
+                environment: .live(environment: BeaconDetectorEnvironment(eventsService: BeaconEventsFirebaseService(),
+                                                                          beaconDetector: BeaconDetector()))))
         }
     }
 }

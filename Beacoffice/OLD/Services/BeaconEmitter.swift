@@ -9,6 +9,8 @@ import Foundation
 import CoreLocation
 import CoreBluetooth
 
+// TODO: UNUSED (removed from target)
+
 class BeaconEmitter: NSObject, CBPeripheralManagerDelegate {
     
     var localBeacon: CLBeaconRegion!
